@@ -1,0 +1,32 @@
+{
+  "name": "unipus-browser-runner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "大学英语 1-4 通用的 U 校园浏览器辅助运行器：CDP 复用登录、任务清单采集、DeepSeek 计划与提交核验",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup": "node src/runner.mjs --setup",
+    "start": "node src/runner.mjs",
+    "test": "node --test test/",
+    "pause": "node src/control.mjs pause",
+    "resume": "node src/control.mjs resume",
+    "stop": "node src/control.mjs stop",
+    "skip": "node src/control.mjs skip",
+    "browser": "node src/browser.mjs",
+    "crawl": "node src/runner.mjs --crawl",
+    "list": "node src/runner.mjs --list",
+    "courses": "node src/runner.mjs --courses",
+    "check": "node --check src/runner.mjs && node --check src/crawl.mjs && node --check src/browser.mjs && node --check src/browser-session.mjs && node --check src/answer.mjs && node --check src/core.mjs && node --check src/queue.mjs && node --check src/policy.mjs && node --check src/deepseek-reply.mjs && node --check src/choice.mjs && node --check src/task-progress.mjs && node --check src/verify-tasks.mjs && node --check src/config.mjs && node --check src/log.mjs && node --check src/net.mjs && node --check src/paths.mjs && node --check src/inventory-report.mjs",
+    "verify": "node src/verify-tasks.mjs",
+    "inventory": "node src/inventory-report.mjs",
+    "audit": "node src/audit-unit.mjs",
+    "video": "node src/video-check.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.56.0"
+  }
+}

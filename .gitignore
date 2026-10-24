@@ -1,0 +1,31 @@
+# 依赖
+node_modules/
+
+# 本地配置：可能含课程 ID 等个人学习信息，绝不提交
+config.json
+.env
+.env.*
+!.env.example
+
+# 登录态：专用 Edge 的用户数据与导出的会话文件
+browser-profile/
+*.session.json
+
+# 运行产物：采集数据、截图、DeepSeek 对话、提交记录、日志
+artifacts/
+logs/
+*.log
+
+# 编辑器与系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.bak
+# 手动打包的压缩包（可能含 config.json / artifacts / node_modules）
+*.zip
+*.7z
+*.rar

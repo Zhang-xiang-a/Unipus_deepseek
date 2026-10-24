@@ -1,0 +1,145 @@
+{
+  "__说明": [
+    "这是配置模板。复制为 config.json 后填写 courses 里目标课程的 courseId。",
+    "四门课通过 activeCourse 切换，或用命令行 --course course2 / 环境变量 UNIPUS_PROFILE=course2。",
+    "course1 ~ course4 的结构完全相同；把实际课程 ID 填进 courseId，courseUrl 里的 {courseId} 会自动替换。",
+    "账号、密码、cookie、token 一律不要写进本文件：登录由专用 Edge 窗口完成。",
+    "字段说明见 README.md 的“配置方法”和 docs/CONFIG.md。"
+  ],
+  "activeCourse": "course1",
+  "courses": {
+    "course1": {
+      "label": "大学英语 1",
+      "textbook": "新视野大学英语（第四版）读写教程 1",
+      "courseId": "<COURSE_ID_1>",
+      "courseUrl": "https://uai.unipus.cn/app/cmgt/resource-detail/{courseId}",
+      "unitCount": 6,
+      "answerSource": "deepseek-web",
+      "submitTexts": ["提交", "提交答案", "Submit"],
+      "manualTaskTypes": ["项目作品上传", "复习自评"],
+      "skipTaskTypes": [],
+      "listeningKeywords": ["听力", "听写", "listening", "dictation"],
+      "referencePathAlias": "Reading the text"
+    },
+    "course2": {
+      "label": "大学英语 2",
+      "textbook": "新视野大学英语（第四版）读写教程 2",
+      "courseId": "<COURSE_ID_2>",
+      "courseUrl": "https://uai.unipus.cn/app/cmgt/resource-detail/{courseId}",
+      "unitCount": 6,
+      "answerSource": "deepseek-web",
+      "submitTexts": ["提交", "提交答案", "Submit"],
+      "manualTaskTypes": ["项目作品上传", "复习自评"],
+      "skipTaskTypes": [],
+      "listeningKeywords": ["听力", "听写", "listening", "dictation"],
+      "referencePathAlias": "Reading the text"
+    },
+    "course3": {
+      "label": "大学英语 3",
+      "textbook": "新视野大学英语（第四版）读写教程 3",
+      "courseId": "<COURSE_ID_3>",
+      "courseUrl": "https://uai.unipus.cn/app/cmgt/resource-detail/{courseId}",
+      "unitCount": 6,
+      "answerSource": "deepseek-web",
+      "submitTexts": ["提交", "提交答案", "Submit"],
+      "manualTaskTypes": ["项目作品上传", "复习自评"],
+      "skipTaskTypes": [],
+      "listeningKeywords": ["听力", "听写", "listening", "dictation"],
+      "referencePathAlias": "Reading the text"
+    },
+    "course4": {
+      "label": "大学英语 4",
+      "textbook": "新视野大学英语（第四版）读写教程 4",
+      "courseId": "<COURSE_ID_4>",
+      "courseUrl": "https://uai.unipus.cn/app/cmgt/resource-detail/{courseId}",
+      "unitCount": 6,
+      "answerSource": "deepseek-web",
+      "submitTexts": ["提交", "提交答案", "Submit"],
+      "manualTaskTypes": ["项目作品上传", "复习自评"],
+      "skipTaskTypes": [],
+      "listeningKeywords": ["听力", "听写", "listening", "dictation"],
+      "referencePathAlias": "Reading the text"
+    }
+  },
+  "defaults": {
+    "browserEndpoint": "http://127.0.0.1:9228",
+    "deepseek": {
+      "url": "https://chat.deepseek.com/",
+      "composer": "textarea",
+      "fileInput": "input[type=file]",
+      "uploadButton": ""
+    },
+    "login": {
+      "ssoHost": "sso.unipus.cn",
+      "courseHosts": ["uai.unipus.cn", "ucontent.unipus.cn"]
+    },
+    "uiTexts": {
+      "submitConfirm": "确定提交吗",
+      "answerSummary": "答题小结",
+      "answerSummaryEntry": "查看答题小结",
+      "dismiss": "我知道了",
+      "startLearning": "开始学习",
+      "continueLearning": "继续学习",
+      "newChat": "开启新对话",
+      "vocabularyNext": "下一个"
+    },
+    "network": {
+      "connectTimeoutMs": 15000,
+      "gotoTimeoutMs": 30000,
+      "retries": 2,
+      "retryDelayMs": 1500
+    },
+    "throttle": {
+      "actionDelayMs": [1800, 4500],
+      "fillDelayMs": [250, 600],
+      "choiceDelayMs": [150, 350]
+    },
+    "logging": {
+      "dir": "logs",
+      "level": "info"
+    },
+    "answerLoop": {
+      "maxStallRounds": 3,
+      "maxRoundsPerTask": 12,
+      "newChatEveryRounds": 8
+    },
+    "runnerPolicy": {
+      "skippedTasks": "remember",
+      "listeningChoices": "first",
+      "deepseekFailure": "continue",
+      "taskFailure": "continue"
+    },
+    "learningPolicy": {
+      "video": "normal_play_until_ended",
+      "readingSeconds": 10,
+      "vocabulary": "next_until_last_then_quiz",
+      "subtasks": "track_full_unit_section_tab_task_path"
+    },
+    "typeRules": {
+      "manual": ["项目作品上传", "复习自评"],
+      "projectUpload": { "task": "^Unit project$", "text": "upload your work" },
+      "review": { "task": "^Review & check$" },
+      "choiceCaption": "^[A-Z]$",
+      "trueFalseText": "True\\.|False\\.|Not given\\.",
+      "bankedCloze": "Banked cloze",
+      "sentenceStructure": "Sentence structure",
+      "translation": "Translat",
+      "writing": "Structured writing|Unit project",
+      "vocabulary": "^Vocabulary$",
+      "media": "Preview|Viewing|Critical thinking skill",
+      "fallback": "阅读或尚未识别的交互"
+    }
+  },
+  "answerPolicy": {
+    "objective": "deepseek_99_other_01",
+    "judgement": "deepseek_100",
+    "subjective": "deepseek_direct",
+    "manualTasks": "project_upload_and_self_review_only"
+  },
+  "incorrectChoiceRate": 0.01,
+  "maxSteps": 1200,
+  "responseTimeoutMs": 240000,
+  "uploadScreenshots": true,
+  "muteCourseMedia": true,
+  "dryRun": true
+}
