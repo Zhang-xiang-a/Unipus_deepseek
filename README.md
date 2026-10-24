@@ -57,8 +57,8 @@
 ## 4. 安装
 
 ```powershell
-git clone <本仓库地址>
-cd unipus-runner
+git clone https://github.com/Zhang-xiang-a/Unipus_deepseek.git
+cd Unipus_deepseek
 npm install
 Copy-Item config.example.json config.json
 ```
@@ -222,7 +222,7 @@ npm run audit -- 3 --skip-banked-cloze
 ## 7. 目录结构
 
 ```
-unipus-runner/
+Unipus_deepseek/
 ├─ config.example.json     # 四门课模板（占位符，可公开）
 ├─ config.json             # 你的本地配置（gitignore）
 ├─ package.json
